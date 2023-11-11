@@ -17,9 +17,7 @@ public interface UserApi {
             @RequestParam(value = "userName", required = false) String userName,
             @RequestParam(value = "email", required = false) String email,
             @RequestParam(value = "fullName", required = false) String fullName,
-            @RequestParam(value = "limit", required = false) Integer limit
-
-    );
+            @RequestParam(value = "limit", required = false) Integer limit    );
 
     @PostMapping(value = USER_END_POINT + "/add")
     UserDto addUser(@RequestBody UserDto userDto);

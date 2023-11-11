@@ -29,10 +29,6 @@ public class UserValidator {
         if (StringUtils.isEmpty(userDto.getPassword())) {
             errors.add("Password cannot be empty");
         }
-
         return errors;
-
     }
-
-
 }

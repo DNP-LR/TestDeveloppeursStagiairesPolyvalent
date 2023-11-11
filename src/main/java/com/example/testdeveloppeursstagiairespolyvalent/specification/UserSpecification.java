@@ -3,7 +3,6 @@ package com.example.testdeveloppeursstagiairespolyvalent.specification;
 import com.example.testdeveloppeursstagiairespolyvalent.criteria.UserCriteria;
 import com.example.testdeveloppeursstagiairespolyvalent.entity.UserModel;
 import org.springframework.data.jpa.domain.Specification;
-
 import java.util.Objects;
 
 public final class UserSpecification {

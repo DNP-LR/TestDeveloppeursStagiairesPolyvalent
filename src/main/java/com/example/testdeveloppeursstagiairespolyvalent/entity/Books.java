@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 
@@ -12,18 +13,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "userRole")
-public class Role {
+@Table(name = "books")
+public class Books {
     @Id
     @Column(name = "id", unique = true, nullable = false, updatable = false, length = 20)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "roleName", length = 60, unique = true)
-    private String roleName;
+    @Column(name = "bookName", length = 60, unique = true)
+    private String bookName;
 
-    @Column(name = "roleDescription", length = 60)
-    private String roleDescription;
+    @Column(name = "bookDescription", length = 60)
+    private String bookDescription;
+    @Column(name = "bookType", length = 60)
+    private String bookType;
 
     @Column(name = "createdAt")
     private LocalDateTime createAt;
@@ -31,9 +34,6 @@ public class Role {
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
 
-//    @OneToMany(mappedBy = "role")
-//    @JsonIgnore
-//    private List<UserModel> user;
 
     @PrePersist
     void persist() {

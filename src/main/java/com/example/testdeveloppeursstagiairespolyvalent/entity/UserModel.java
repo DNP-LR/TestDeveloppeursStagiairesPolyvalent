@@ -48,7 +48,7 @@ public class UserModel {
     private String email;
 
 //    @OneToMany(mappedBy = "user")
-//    private List<Role> roles;
+//    private List<Books> roles;
 
 
     @PrePersist
