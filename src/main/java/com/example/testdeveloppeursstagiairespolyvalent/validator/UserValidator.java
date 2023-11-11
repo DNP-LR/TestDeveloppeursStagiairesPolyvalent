@@ -11,19 +11,28 @@ public class UserValidator {
         List<String> errors = new ArrayList<>();
 
         if (userDto == null) {
-            errors.add("enter user full name");
+            errors.add("enter user Information name");
             return errors;
         }
-        if (!StringUtils.hasLength(userDto.getFullName())) {
-            errors.add("Enter user Full Name");
+
+        if (StringUtils.isEmpty(userDto.getUserName())) {
+            errors.add("Username cannot be empty");
         }
-        if (!StringUtils.hasLength(userDto.getEmail())) {
-            errors.add("Enter user Mail");
+
+        if (StringUtils.isEmpty(userDto.getFullName())) {
+            errors.add("Full name cannot be empty");
         }
-        if (!StringUtils.hasLength(userDto.getUserName())) {
-            errors.add("Enter user Name");
+
+        if (StringUtils.isEmpty(userDto.getEmail())) {
+            errors.add("Email cannot be empty");
         }
+        if (StringUtils.isEmpty(userDto.getPassword())) {
+            errors.add("Password cannot be empty");
+        }
+
         return errors;
 
     }
+
+
 }

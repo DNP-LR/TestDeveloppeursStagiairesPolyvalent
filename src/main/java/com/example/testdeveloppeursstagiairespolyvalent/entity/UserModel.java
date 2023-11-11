@@ -6,24 +6,27 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "userModel")
+public class UserModel {
     @Id
-    @Column(name = "id", unique = true, nullable = false, updatable = false, length = 20)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "userName", length = 60, unique = true)
     private String userName;
 
-    @Column(name = "fullName", length = 30)
+    @Column(name = "fullName", length = 30, unique = true)
     private String fullName;
 
     @Column(name = "createdAt")

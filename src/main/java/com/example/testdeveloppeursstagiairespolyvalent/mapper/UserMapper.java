@@ -1,7 +1,8 @@
 package com.example.testdeveloppeursstagiairespolyvalent.mapper;
 
 import com.example.testdeveloppeursstagiairespolyvalent.dto.UserDto;
-import com.example.testdeveloppeursstagiairespolyvalent.entity.User;
+import com.example.testdeveloppeursstagiairespolyvalent.entity.UserModel;
+import com.example.testdeveloppeursstagiairespolyvalent.util.DateToStringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,40 +10,44 @@ import java.util.List;
 public class UserMapper {
 
 
-    public static UserDto fromEntity(User user) {
-        if (user == null) {
+    public static UserDto fromEntity(UserModel userModel) {
+        if (userModel == null) {
             return null;
         }
 
         UserDto userDto = new UserDto();
-        user.setId(user.getId());
-        user.setUserName(user.getUserName());
-        user.setEmail(user.getEmail());
-        user.setFullName(user.getFullName());
-        user.setCreatedAt(user.getCreatedAt());
-        user.setUpdatedAt(user.getUpdatedAt());
+        userDto.setId(userModel.getId());
+        userDto.setUserName(userModel.getUserName());
+        userDto.setEmail(userModel.getEmail());
+//        userDto.setPassword(userModel.getPassword());
+        userDto.setFullName(userModel.getFullName());
+        userDto.setCreatedAt(userModel.getCreatedAt());
+        userDto.setCreatedAtString(DateToStringUtil.getDateToString(userModel.getCreatedAt()));
+        userDto.setUpdatedAt(userModel.getUpdatedAt());
+        userDto.setUpdatedAtString(DateToStringUtil.getDateToString(userModel.getUpdatedAt()));
         return userDto;
     }
 
-    public static User toEntity(UserDto userDto) {
+    public static UserModel toEntity(UserDto userDto) {
         if (userDto == null) {
             return null;
         }
-        User user = new User();
+        UserModel userModel = new UserModel();
 
-        user.setId(userDto.getId());
-        user.setUserName(user.getUserName());
-        user.setFullName(userDto.getFullName());
-        user.setEmail(userDto.getEmail());
-        user.setCreatedAt(userDto.getCreatedAt());
-        user.setUpdatedAt(userDto.getUpdatedAt());
-        return user;
+        userModel.setId(userDto.getId());
+        userModel.setUserName(userDto.getUserName());
+        userModel.setFullName(userDto.getFullName());
+        userModel.setEmail(userDto.getEmail());
+//        userModel.setPassword(userDto.getPassword());
+        userModel.setCreatedAt(userDto.getCreatedAt());
+        userModel.setUpdatedAt(userDto.getUpdatedAt());
+        return userModel;
     }
 
-    public static List<UserDto> fromEntities(List<User> entities) {
+    public static List<UserDto> fromEntities(List<UserModel> entities) {
         List<UserDto> dtos = new ArrayList<>();
 
-        for (User entity : entities) {
+        for (UserModel entity : entities) {
             dtos.add(fromEntity(entity));
         }
         return dtos;

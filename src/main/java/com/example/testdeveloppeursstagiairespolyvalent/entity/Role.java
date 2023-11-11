@@ -33,7 +33,7 @@ public class Role {
 
 //    @OneToMany(mappedBy = "role")
 //    @JsonIgnore
-//    private List<User> user;
+//    private List<UserModel> user;
 
     @PrePersist
     void persist() {

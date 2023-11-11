@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserCriterial {
+public class UserCriteria {
 
     private String userName;
     private String fullName;

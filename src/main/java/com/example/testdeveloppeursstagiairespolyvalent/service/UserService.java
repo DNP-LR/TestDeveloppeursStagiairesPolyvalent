@@ -1,16 +1,22 @@
 package com.example.testdeveloppeursstagiairespolyvalent.service;
 
-import com.example.testdeveloppeursstagiairespolyvalent.criteria.UserCriterial;
+import com.example.testdeveloppeursstagiairespolyvalent.criteria.UserCriteria;
 import com.example.testdeveloppeursstagiairespolyvalent.dto.UserDto;
-import com.example.testdeveloppeursstagiairespolyvalent.entity.User;
+import com.example.testdeveloppeursstagiairespolyvalent.entity.UserModel;
+import com.example.testdeveloppeursstagiairespolyvalent.util.MessageNotification;
 
 import java.util.List;
 
 public interface UserService {
-    User findByUserName(String userName);
+    UserModel findByUserName(String userName);
 
-    UserDto saveUser(UserDto userDto);
+    UserModel findUserById(Long id);
 
-    List<UserDto> listAllUserWithCriteria(UserCriterial criterial);
+    UserModel findUserByEMail(String email);
+    UserDto addUser(UserDto userDto);
+
+    List<UserDto> listAllUserWithCriteria(UserCriteria criteria);
+
+    MessageNotification updateUserInfo(UserDto userDto, Long id);
 
 }
